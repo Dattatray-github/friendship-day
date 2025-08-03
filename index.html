@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Friendship Day - Krishna & Sudama Theme</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://i.imgur.com/fkTzG3Y.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  color: #ffd700;
+  text-shadow: 2px 2px 5px #000;
+}
+
+.quote-slider {
+  font-style: italic;
+  font-size: 1.4em;
+  margin: 20px 0;
+  min-height: 60px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.gallery img {
+  width: 220px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #000;
+}
+
+textarea {
+  width: 80%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 20px;
+  font-size: 1em;
+}
+
+.gif-generator {
+  margin-top: 40px;
+}
+
+#gifContainer img {
+  width: 300px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+footer {
+  margin-top: 50px;
+  font-size: 0.9em;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Happy Friendship Day</h1>  <div class="quote-slider" id="quoteSlider"></div>  <div class="gallery">
+    <img src="https://i.imgur.com/Ef8rnRS.jpg" alt="Krishna and Sudama" />
+    <img src="https://i.imgur.com/XyyLKrU.jpg" alt="Krishna and Sudama" />
+    <img src="https://i.imgur.com/LyYKrDn.jpg" alt="Krishna and Sudama" />
+  </div>  <h2>Write a Friendship Note</h2>
+  <textarea rows="4" placeholder="Write your message to your friend..."></textarea>  <div class="gif-generator">
+    <h2>Celebrate with a Friendship GIF</h2>
+    <button onclick="generateGif()">Generate</button>
+    <div id="gifContainer"></div>
+  </div>  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/04/11/audio_7b1a21489e.mp3?filename=bansuri-krishna-flute-14279.mp3" type="audio/mpeg">
+  </audio>  <footer>
+    Made with ❤️ on Friendship Day | Jai Shri Krishna
+  </footer>  <script>
+    const quotes = [
+      "एक सच्चा मित्र वही है जो तुम्हारे साथ तब चलता है जब सारी दुनिया तुम्हारे खिलाफ होती है। - श्रीकृष्ण",
+      "जिसका कोई नहीं, उसका मैं हूँ — श्रीकृष्ण का यही तो संदेश है मित्रता का।",
+      "सुदामा के भाव ने जो कर दिखाया, वो संसार की सबसे बड़ी मित्रता का उदाहरण बन गया।",
+      "जब सच्ची मित्रता होती है, तो राजा भी अपने दरवाज़े पर खड़ा हो जाता है - जैसे कृष्ण सुदामा के लिए खड़े हुए।",
+      "मित्र वही जो बिना कहे समझ जाए — जैसे श्रीकृष्ण ने सुदामा की पीड़ा समझी।"
+    ];
+
+    let index = 0;
+    const quoteSlider = document.getElementById('quoteSlider');
+    function updateQuote() {
+      quoteSlider.textContent = quotes[index];
+      index = (index + 1) % quotes.length;
+    }
+    setInterval(updateQuote, 5000);
+    updateQuote();
+
+    const gifs = [
+      "https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif",
+      "https://media.giphy.com/media/f9k1tV7HyORcngKF8v/giphy.gif",
+      "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
+      "https://media.giphy.com/media/3ohhwF34cGDoFFhRfy/giphy.gif"
+    ];
+
+    function generateGif() {
+      const gifContainer = document.getElementById('gifContainer');
+      const randomIndex = Math.floor(Math.random() * gifs.length);
+      gifContainer.innerHTML = `<img src="${gifs[randomIndex]}" alt="Friendship GIF" />`;
+    }
+  </script></body>
+</html>
