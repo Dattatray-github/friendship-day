@@ -1,110 +1,141 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Friendship Day - Krishna & Sudama Theme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Friendship Day - Krishna & Sudama</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-image: url('https://i.imgur.com/fkTzG3Y.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      color: #fff;
+      background: linear-gradient(to bottom, #fffbe7, #ffe4ec);
+      color: #3a2e1a;
       text-align: center;
       padding: 20px;
-    }h1 {
-  font-size: 3em;
-  margin-bottom: 0.5em;
-  color: #ffd700;
-  text-shadow: 2px 2px 5px #000;
-}
+    }
 
-.quote-slider {
-  font-style: italic;
-  font-size: 1.4em;
-  margin: 20px 0;
-  min-height: 60px;
-}
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
 
-.gallery {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin: 30px 0;
-}
+    .quote-slider {
+      font-size: 1.3em;
+      font-style: italic;
+      margin: 20px auto;
+      max-width: 600px;
+      animation: fadeIn 2s;
+      min-height: 80px;
+    }
 
-.gallery img {
-  width: 220px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #000;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-textarea {
-  width: 80%;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  margin-top: 20px;
-  font-size: 1em;
-}
+    .gif-section {
+      margin-top: 30px;
+    }
 
-.gif-generator {
-  margin-top: 40px;
-}
+    .gif-section button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background: #e2b4ff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
 
-#gifContainer img {
-  width: 300px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
+    .gif-section img {
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
 
-footer {
-  margin-top: 50px;
-  font-size: 0.9em;
-}
+    .message-form {
+      margin-top: 40px;
+    }
 
+    .message-form form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message-form input, .message-form textarea, .message-form button {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1em;
+    }
+
+    .message-form button {
+      background-color: #ffd966;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <h1>Happy Friendship Day</h1>  <div class="quote-slider" id="quoteSlider"></div>  <div class="gallery">
-    <img src="https://i.imgur.com/Ef8rnRS.jpg" alt="Krishna and Sudama" />
-    <img src="https://i.imgur.com/XyyLKrU.jpg" alt="Krishna and Sudama" />
-    <img src="https://i.imgur.com/LyYKrDn.jpg" alt="Krishna and Sudama" />
-  </div>  <h2>Write a Friendship Note</h2>
-  <textarea rows="4" placeholder="Write your message to your friend..."></textarea>  <div class="gif-generator">
-    <h2>Celebrate with a Friendship GIF</h2>
-    <button onclick="generateGif()">Generate</button>
+
+  <h1>Happy Friendship Day!</h1>
+  <p>Celebrating the divine bond of Friendship</p>
+
+  <div class="quote-slider" id="quoteSlider">
+    “A friend is someone who reaches for your hand but touches your soul.”
+  </div>
+
+  <audio autoplay loop>
+    <source src="flute.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="gif-section">
+    <button onclick="generateGif()">Generate Friendship GIF</button>
     <div id="gifContainer"></div>
-  </div>  <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2023/04/11/audio_7b1a21489e.mp3?filename=bansuri-krishna-flute-14279.mp3" type="audio/mpeg">
-  </audio>  <footer>
-    Made with ❤️ on Friendship Day | Jai Shri Krishna
-  </footer>  <script>
+  </div>
+
+  <div class="message-form">
+    <h2>Send Your Friendship Message</h2>
+    <form action="https://formsubmit.co/dattashahane1405@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <textarea name="message" placeholder="Your Friendship Message" required></textarea>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Friendship Day Message!">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
     const quotes = [
-      "एक सच्चा मित्र वही है जो तुम्हारे साथ तब चलता है जब सारी दुनिया तुम्हारे खिलाफ होती है। - श्रीकृष्ण",
-      "जिसका कोई नहीं, उसका मैं हूँ — श्रीकृष्ण का यही तो संदेश है मित्रता का।",
-      "सुदामा के भाव ने जो कर दिखाया, वो संसार की सबसे बड़ी मित्रता का उदाहरण बन गया।",
-      "जब सच्ची मित्रता होती है, तो राजा भी अपने दरवाज़े पर खड़ा हो जाता है - जैसे कृष्ण सुदामा के लिए खड़े हुए।",
-      "मित्र वही जो बिना कहे समझ जाए — जैसे श्रीकृष्ण ने सुदामा की पीड़ा समझी।"
+      "“A friend is someone who reaches for your hand but touches your soul.”",
+      "“The friend who stands by in adversity is the true companion.”",
+      "“When you offer your heart to God, even a handful of rice becomes divine.”",
+      "“True friendship is not about wealth, it is about love and trust.”"
+     
     ];
 
     let index = 0;
-    const quoteSlider = document.getElementById('quoteSlider');
-    function updateQuote() {
-      quoteSlider.textContent = quotes[index];
+    setInterval(() => {
       index = (index + 1) % quotes.length;
-    }
-    setInterval(updateQuote, 5000);
-    updateQuote();
+      document.getElementById("quoteSlider").innerText = quotes[index];
+    }, 5000);
 
-    const gifs = [
-      "https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif",
-      "https://media.giphy.com/media/f9k1tV7HyORcngKF8v/giphy.gif",
-      "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
-      "https://media.giphy.com/media/3ohhwF34cGDoFFhRfy/giphy.gif"
+    function generateGif() {
+      const gifs = [
+        "https://media.giphy.com/media/3o6ZtpxSZbQRRnwCKQ/giphy.gif",
+        "https://media.giphy.com/media/l0ExncehJzexFpRHq/giphy.gif",
+        "https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif",
+        "https://media.giphy.com/media/3orieVZf8kKqzzK2FO/giphy.gif"
+      ];
+      const random = Math.floor(Math.random() * gifs.length);
+      document.getElementById("gifContainer").innerHTML = `<img src="${gifs[random]}" alt="Friendship GIF">`;
+    }
+  </script>
+</body>
+</html>      "https://media.giphy.com/media/3ohhwF34cGDoFFhRfy/giphy.gif"
     ];
 
     function generateGif() {
